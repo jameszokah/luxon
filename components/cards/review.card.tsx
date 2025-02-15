@@ -5,6 +5,7 @@ import { View, Text, Image } from "react-native";
 export default function ReviewCard({ item }: { item: ReviewType }) {
   return (
     <View style={{ flexDirection: "row" }}>
+      { item.user?.avatar?.url && 
       <Image
         style={{ width: 50, height: 50, borderRadius: 100 }}
         source={{
@@ -13,6 +14,7 @@ export default function ReviewCard({ item }: { item: ReviewType }) {
             "https://res.cloudinary.com/dshp9jnuy/image/upload/v1665822253/avatars/nrxsg8sd9iy10bbsoenn.png",
         }}
       />
+}
       <View style={{ marginHorizontal: 8, flex: 1 }}>
         <View style={{ flex: 1, justifyContent: "space-around" }}>
           <View

@@ -28,10 +28,12 @@ export default function WelcomeIntroScreen() {
       style={{ flex: 1, paddingHorizontal: 16 }}
     >
       <View style={{ marginTop: 80 }}>
+        {item.image &&
         <Image
           source={item.image}
           style={{ alignSelf: "center", marginBottom: 30 }}
         />
+}
         <Text style={[commonStyles.title, { fontFamily: "Raleway_700Bold" }]}>
           {item.title}
         </Text>

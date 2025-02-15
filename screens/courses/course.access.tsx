@@ -158,10 +158,12 @@ export default function CourseAccessScreen() {
           <View
             style={{ width: "100%", aspectRatio: 16 / 9, borderRadius: 10 }}
           >
+            {courseContentData[activeVideo]?.videoUrl! &&
             <WebView
               source={{ uri: courseContentData[activeVideo]?.videoUrl! }}
               allowsFullscreenVideo={true}
             />
+}
           </View>
           <View
             style={{

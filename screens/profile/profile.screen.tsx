@@ -49,48 +49,48 @@ export default function ProfileScreen() {
     router.push("/(routes)/login");
   };
 
-  const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
+  // const pickImage = async () => {
+  //   let result = await ImagePicker.launchImageLibraryAsync({
+  //     mediaTypes: ImagePicker.MediaTypeOptions.All,
+  //     allowsEditing: true,
+  //     aspect: [4, 3],
+  //     quality: 1,
+  //   });
 
-    if (!result.canceled) {
-      const base64 = await FileSystem.readAsStringAsync(result.assets[0].uri, {
-        encoding: FileSystem.EncodingType.Base64,
-      });
-      setLoader(true);
-      const base64Image = `data:image/jpeg;base64,${base64}`;
-      setImage(base64Image);
+  //   if (!result.canceled) {
+  //     const base64 = await FileSystem.readAsStringAsync(result.assets[0].uri, {
+  //       encoding: FileSystem.EncodingType.Base64,
+  //     });
+  //     setLoader(true);
+  //     const base64Image = `data:image/jpeg;base64,${base64}`;
+  //     setImage(base64Image);
 
-      const accessToken = await AsyncStorage.getItem("access_token");
-      const refreshToken = await AsyncStorage.getItem("refresh_token");
+  //     const accessToken = await AsyncStorage.getItem("access_token");
+  //     const refreshToken = await AsyncStorage.getItem("refresh_token");
 
-      try {
-        const response = await axios.put(
-          `${SERVER_URI}/update-user-avatar`,
-          {
-            avatar: base64Image,
-          },
-          {
-            headers: {
-              "access-token": accessToken,
-              "refresh-token": refreshToken,
-            },
-          }
-        );
-        if (response.data) {
-          setRefetch(true);
-          setLoader(false);
-        }
-      } catch (error) {
-        setLoader(false);
-        console.log(error);
-      }
-    }
-  };
+  //     try {
+  //       const response = await axios.put(
+  //         `${SERVER_URI}/update-user-avatar`,
+  //         {
+  //           avatar: base64Image,
+  //         },
+  //         {
+  //           headers: {
+  //             "access-token": accessToken,
+  //             "refresh-token": refreshToken,
+  //           },
+  //         }
+  //       );
+  //       if (response.data) {
+  //         setRefetch(true);
+  //         setLoader(false);
+  //       }
+  //     } catch (error) {
+  //       setLoader(false);
+  //       console.log(error);
+  //     }
+  //   }
+  // };
 
   return (
     <>
@@ -104,6 +104,9 @@ export default function ProfileScreen() {
           <ScrollView>
             <View style={{ flexDirection: "row", justifyContent: "center" }}>
               <View style={{ position: "relative" }}>
+                {image ||
+                      user?.avatar?.url &&
+
                 <Image
                   source={{
                     uri:
@@ -113,6 +116,8 @@ export default function ProfileScreen() {
                   }}
                   style={{ width: 90, height: 90, borderRadius: 100 }}
                 />
+
+                }
                 <TouchableOpacity
                   style={{
                     position: "absolute",
@@ -126,7 +131,7 @@ export default function ProfileScreen() {
                     alignItems: "center",
                     justifyContent: "center",
                   }}
-                  onPress={pickImage}
+                  onPress={() => console.log('Logging where iamge  must e pressed')}
                 >
                   <Ionicons name="camera-outline" size={25} />
                 </TouchableOpacity>

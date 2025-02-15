@@ -72,10 +72,13 @@ export default function SearchInput({ homeScreen }: { homeScreen?: boolean }) {
         })
       }
     >
+      { item?.thumbnail?.url &&
       <Image
         source={{ uri: item?.thumbnail?.url }}
         style={{ width: 60, height: 60, borderRadius: 10 }}
       />
+}
+
       <Text
         style={{
           fontSize: 14,

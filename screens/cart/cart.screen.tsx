@@ -181,6 +181,7 @@ export default function CartScreen() {
                 }}
               >
                 <TouchableOpacity onPress={() => handleCourseDetails(item)}>
+                  {item.thumbnail.url &&
                   <Image
                     source={{ uri: item.thumbnail.url! }}
                     style={{
@@ -190,6 +191,7 @@ export default function CartScreen() {
                       borderRadius: 8,
                     }}
                   />
+            }
                 </TouchableOpacity>
                 <View style={{ flex: 1, justifyContent: "space-between" }}>
                   <TouchableOpacity onPress={() => handleCourseDetails(item)}>

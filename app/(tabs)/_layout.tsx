@@ -22,7 +22,7 @@ export default function TabsLayout() {
             return (
               <Image
                 style={{ width: 25, height: 25, tintColor: color }}
-                source={iconName}
+                source={iconName || require("@/assets/icons/HouseSimple.png")}
               />
             );
           },

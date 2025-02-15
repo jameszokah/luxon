@@ -118,10 +118,12 @@ export default function CourseDetailScreen() {
                   </Text>
                 </View>
               </View>
+              { courseData?.thumbnail.url &&
               <Image
-                source={{ uri: courseData?.thumbnail.url! }}
+                source={{ uri: courseData?.thumbnail.url! || '' }}
                 style={{ width: "100%", height: 230, borderRadius: 6 }}
               />
+}
             </View>
             <Text
               style={{

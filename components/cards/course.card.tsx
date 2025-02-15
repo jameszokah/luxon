@@ -7,6 +7,7 @@ import {
 } from "react-native-responsive-screen";
 
 export default function CourseCard({ item }: { item: CoursesType }) {
+  console.log(item.thumbnail.url)
   return (
     <TouchableOpacity
       style={styles.container}
@@ -18,6 +19,7 @@ export default function CourseCard({ item }: { item: CoursesType }) {
       }
     >
       <View style={{ paddingHorizontal: 10 }}>
+        {item.thumbnail.url &&
         <Image
           style={{
             width: wp(86),
@@ -28,6 +30,8 @@ export default function CourseCard({ item }: { item: CoursesType }) {
           }}
           source={{ uri: item.thumbnail.url }}
         />
+}
+
         <View style={{ width: wp(85) }}>
           <Text
             style={{

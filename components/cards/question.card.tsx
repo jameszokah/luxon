@@ -63,6 +63,7 @@ export default function QuestionsCard({
   return (
     <>
       <View style={{ flexDirection: "row", paddingVertical: 10 }}>
+        {item.user?.avatar?.url && 
         <Image
           style={{ width: 50, height: 50, borderRadius: 100 }}
           source={{
@@ -71,6 +72,8 @@ export default function QuestionsCard({
               "https://res.cloudinary.com/dshp9jnuy/image/upload/v1665822253/avatars/nrxsg8sd9iy10bbsoenn.png",
           }}
         />
+}
+
         <View style={{ marginHorizontal: 8, flex: 1 }}>
           <View style={{ flex: 1, justifyContent: "space-around" }}>
             <View
@@ -121,6 +124,8 @@ export default function QuestionsCard({
                   }}
                   key={index}
                 >
+                  {reply.user?.avatar?.url &&
+
                   <Image
                     style={{ width: 50, height: 50, borderRadius: 100 }}
                     source={{
@@ -129,6 +134,8 @@ export default function QuestionsCard({
                         "https://res.cloudinary.com/dshp9jnuy/image/upload/v1665822253/avatars/nrxsg8sd9iy10bbsoenn.png",
                     }}
                   />
+}
+
                   <View style={{ marginHorizontal: 8, flex: 1 }}>
                     <View style={{ flex: 1, justifyContent: "space-around" }}>
                       <View

@@ -31,12 +31,14 @@ export default function Header() {
     <View style={styles.container}>
       <View style={styles.headerWrapper}>
         <TouchableOpacity onPress={() => router.push("/(tabs)/profile")}>
+         {user?.avatar && 
           <Image
             source={
-              user?.avatar ? user.avatar : require("@/assets/icons/User.png")
+              user?.avatar ? { uri: user?.avatar?.url } : require("@/assets/icons/User.png")
             }
             style={styles.image}
           />
+}
         </TouchableOpacity>
         <View>
           <Text style={[styles.helloText, { fontFamily: "Raleway_700Bold" }]}>
