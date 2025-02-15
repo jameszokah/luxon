@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Betafier",
-    "slug": "Betafier",
+    "name": "Luxon",
+    "slug": "luxon",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "betafier",
+    "scheme": "luxon",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -14,14 +14,14 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.betafier.app"
+      "bundleIdentifier": "com.luxon.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.betafier.app"
+      "package": "com.luxon.app"
     },
     "web": {
       "bundler": "metro",
